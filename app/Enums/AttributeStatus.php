@@ -9,7 +9,7 @@ use BenSampo\Enum\Enum;
  * @method static static INACTIVE()
  * @method static static DELETED()
  */
-final class SpeccyStatus extends Enum
+final class AttributeStatus extends Enum
 {
     const ACTIVE = 'ĐANG HOẠT ĐỘNG';
     const INACTIVE = 'KHÔNG HOẠT ĐỘNG';
