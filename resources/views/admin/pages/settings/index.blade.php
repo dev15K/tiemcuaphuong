@@ -7,7 +7,7 @@
         <h1>App Setting</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Trang quản trị</a></li>
                 <li class="breadcrumb-item active">App Setting</li>
             </ol>
         </nav>

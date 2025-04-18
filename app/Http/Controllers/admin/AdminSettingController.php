@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class AdminSettingController extends Controller
 {
+    public function index()
+    {
+        return view('admin.pages.settings.index');
+    }
+
     public function appSetting(Request $request)
     {
         try {
