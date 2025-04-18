@@ -5,21 +5,21 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminUserController extends Controller
+class AdminAttributeController extends Controller
 {
     public function list()
     {
-        return view('admin.pages.users.list');
+        return view('admin.pages.attributes.list');
     }
 
     public function detail($id)
     {
-        return view('admin.pages.users.detail');
+        return view('admin.pages.attributes.detail');
     }
 
     public function create()
     {
-        return view('admin.pages.users.create');
+        return view('admin.pages.attributes.create');
     }
 
     public function store(Request $request)
