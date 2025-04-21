@@ -1,61 +1,47 @@
 @extends('admin.layouts.master')
 @section('title')
-    Dashboard
+    Thêm mới giá trị thuộc tính
 @endsection
 @section('content')
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Thêm mới giá trị thuộc tính</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Trang quản trị</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active">Thêm mới giá trị thuộc tính</li>
             </ol>
         </nav>
     </div>
     <section class="section">
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="{{ route('admin.properties.store') }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
-                </div>
-            </div>
             <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" value="" required>
             </div>
-            <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
+            <div class="row">
                 <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
+                    <label for="attribute_id">Attribute</label>
+                    <select id="attribute_id" name="attribute_id" class="form-control" required>
+                        <option value="" selected>Choose...</option>
+                        @foreach($attributes as $attribute)
+                            <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
+                        @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                <div class="form-group col-md-4">
+                    <label for="thumbnail">Thumbnail</label>
+                    <input class="form-control" type="file" name="thumbnail" value="thumbnail" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
+                <div class="form-group col-md-4">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" class="form-control" required>
+                        <option value="" selected>Choose...</option>
+                        <option
+                            value="{{ \App\Enums\PropertyStatus::ACTIVE }}">{{ \App\Enums\PropertyStatus::ACTIVE }}</option>
+                        <option
+                            value="{{ \App\Enums\PropertyStatus::INACTIVE }}">{{ \App\Enums\PropertyStatus::INACTIVE }}</option>
+                    </select>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-2">Thêm mới</button>

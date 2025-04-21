@@ -13,7 +13,7 @@
         </nav>
     </div>
     <section class="section">
-        <form method="post" action="{{ route('admin.save.setting') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('admin.app.setting.store') }}" enctype="multipart/form-data">
             @csrf
             <table class="table table-bordered">
                 <colgroup>

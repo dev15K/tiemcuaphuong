@@ -14,34 +14,48 @@
     </div>
     <section class="section">
         <table class="table table-hover">
+            <colgroup>
+                <col width="10%"/>
+                <col width="x"/>
+                <col width="10%"/>
+                <col width="10%"/>
+            </colgroup>
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>
-                    <div class="d-flex gap-2 justify-content-center">
-                        <a href="" class="btn btn-primary btn-sm">
-                            <i class="bi bi-pencil-square"></i>
-                        </a>
-                        <form action="" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
+            @foreach($attributes as $attribute)
+                <tr>
+                    <th scope="row">{{ $loop->index + 1 }}</th>
+                    <td>{{ $attribute->name }}</td>
+                    <td>{{ $attribute->status }}</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="{{ route('admin.attributes.detail', $attribute->id) }}"
+                               class="btn btn-primary btn-sm">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <form action="{{ route('admin.attributes.delete', $attribute->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+            @if(count($attributes) == 0)
+                <tr>
+                    <td class="text-center" colspan="4">No data</td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </section>

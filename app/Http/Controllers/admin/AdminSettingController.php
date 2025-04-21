@@ -66,7 +66,7 @@ class AdminSettingController extends Controller
             }
 
             if ($request->hasFile('qr_code')) {
-                $item = $request->file('favicon');
+                $item = $request->file('qr_code');
                 $itemPath = $item->store('setting', 'public');
                 $favicon = asset('storage/' . $itemPath);
 
@@ -74,7 +74,7 @@ class AdminSettingController extends Controller
             }
 
             if ($request->hasFile('qr_code_02')) {
-                $item = $request->file('favicon');
+                $item = $request->file('qr_code_02');
                 $itemPath = $item->store('setting', 'public');
                 $favicon = asset('storage/' . $itemPath);
 
@@ -86,7 +86,7 @@ class AdminSettingController extends Controller
             $setting->save();
 
             toast('Save successfully!', 'success', 'top-left');
-            return redirect(route('admin.app.setting'));
+            return redirect(route('admin.app.setting.index'));
         } catch (\Exception $exception) {
             \Log::error($exception->getMessage());
             toast('Error, Please try again!', 'error', 'top-left');
