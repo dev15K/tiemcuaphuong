@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => ''], function () {
 
 });
+
+Route::group(['prefix' => 'api'], function () {
+
+});

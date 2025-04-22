@@ -86,3 +86,7 @@ Route::group(['prefix' => 'users'], function () {
     Route::put('/update/{id}', [AdminUserController::class, 'update'])->name('admin.users.update');
     Route::delete('/delete/{id}', [AdminUserController::class, 'delete'])->name('admin.users.delete');
 });
+
+Route::group(['prefix' => 'api'], function () {
+
+});
