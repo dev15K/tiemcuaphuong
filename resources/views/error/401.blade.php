@@ -11,7 +11,8 @@
             <a class="btn" href="{{ route('auth.processLogin') }}?url_callback={{$callback}}">{{ __('error.back_to_home') }}</a>
             <img src="{{ asset('admin/img/not-found.svg') }}" class="img-fluid py-5" alt="{{ __('error.unauthorized') }}">
             <div class="credits">
-                {{ __('error.designed_by') }} <a href="#">Dev Fullstack</a>
+                {{ __('error.designed_by') }} <a target="_blank"
+                                                 href="{{ $setting ? $setting->author_social : '' }}">{{ $setting ? $setting->author_name : '' }}</a>
             </div>
         </section>
 

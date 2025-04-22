@@ -1,12 +1,9 @@
 <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright <strong><span>Dev Fullstack</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>{{ $setting ? $setting->home_name : '' }}</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: #license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: #nice-admin-bootstrap-admin-html-template/ -->
-        Designed by <a href="#">Dev Fullstack</a>
+        {{ __('error.designed_by') }} <a target="_blank"
+                                         href="{{ $setting ? $setting->author_social : '' }}">{{ $setting ? $setting->author_name : '' }}</a>
     </div>
 </footer>

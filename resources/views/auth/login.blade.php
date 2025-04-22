@@ -12,8 +12,8 @@
 
                         <div class="d-flex justify-content-center py-4">
                             <a href="#" class="logo d-flex align-items-center w-auto">
-                                <img src="{{ asset('admin/img/logo.png') }}" alt="">
-                                <span class="d-none d-lg-block">Dev Fullstack</span>
+                                <img src="{{ $setting ? $setting->logo : '' }}" alt="">
+                                <span class="d-none d-lg-block">{{ $setting ? $setting->home_name : '' }}</span>
                             </a>
                         </div><!-- End Logo -->
 
@@ -66,7 +66,8 @@
                         </div>
 
                         <div class="credits">
-                            {{ __('error.designed_by') }} <a href="#">Dev Fullstack</a>
+                            {{ __('error.designed_by') }} <a target="_blank"
+                                href="{{ $setting ? $setting->author_social : '' }}">{{ $setting ? $setting->author_name : '' }}</a>
                         </div>
 
                     </div>

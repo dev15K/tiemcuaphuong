@@ -12,8 +12,8 @@
 
                         <div class="d-flex justify-content-center py-4">
                             <a href="#" class="logo d-flex align-items-center w-auto">
-                                <img src="{{ asset('admin/img/logo.png') }}" alt="">
-                                <span class="d-none d-lg-block">Dev Fullstack</span>
+                                <img src="{{ $setting ? $setting->logo : '' }}" alt="">
+                                <span class="d-none d-lg-block">{{ $setting ? $setting->home_name : '' }}</span>
                             </a>
                         </div><!-- End Logo -->
 
@@ -55,7 +55,8 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="password_confirm" class="form-label">{{ __('input.Password_Confirm') }}</label>
+                                        <label for="password_confirm"
+                                               class="form-label">{{ __('input.Password_Confirm') }}</label>
                                         <input type="password" name="password_confirm" class="form-control"
                                                id="password_confirm" required>
                                         <div class="invalid-feedback">{{ __('input.password_confirm_message') }}</div>
@@ -65,13 +66,15 @@
                                         <div class="form-check">
                                             <input class="form-check-input" name="terms" type="checkbox" value=""
                                                    id="acceptTerms" required>
-                                            <label class="form-check-label" for="acceptTerms">{{ __('auth.agreement') }} <a
+                                            <label class="form-check-label" for="acceptTerms">{{ __('auth.agreement') }}
+                                                <a
                                                     href="#">{{ __('auth.terms_and_conditions') }}</a></label>
                                             <div class="invalid-feedback">{{ __('input.message_must_agree') }}</div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">{{ __('auth.create_account') }}</button>
+                                        <button class="btn btn-primary w-100"
+                                                type="submit">{{ __('auth.create_account') }}</button>
                                     </div>
                                     <div class="col-12">
                                         <p class="small mb-0">{{ __('auth.already_have_account') }} <a
@@ -83,7 +86,8 @@
                         </div>
 
                         <div class="credits">
-                            {{ __('error.designed_by') }} <a href="#">Dev Fullstack</a>
+                            {{ __('error.designed_by') }} <a target="_blank"
+                                href="{{ $setting ? $setting->author_social : '' }}">{{ $setting ? $setting->author_name : '' }}</a>
                         </div>
 
                     </div>

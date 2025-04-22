@@ -5,22 +5,30 @@
             <div class="row g-4">
                 <div class="col-lg-3">
                     <a href="#">
-                        <h1 class="text-primary mb-0">Fruitables</h1>
-                        <p class="text-secondary mb-0">Fresh products</p>
+                        <h1 class="text-primary mb-0">{{ $setting->home_name }}</h1>
+                        <p class="text-secondary mb-0">{{ $setting->browser_title }}</p>
                     </a>
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative mx-auto">
-                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
-                        <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
+                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number"
+                               placeholder="Your Email">
+                        <button type="submit"
+                                class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                                style="top: 0; right: 0;">Subscribe Now
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="d-flex justify-content-end pt-3">
-                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -59,11 +67,11 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
-                    <p>Address: 1429 Netus Rd, NY 48247</p>
-                    <p>Email: Example@gmail.com</p>
-                    <p>Phone: +0123 4567 8910</p>
+                    <p>Address: {{ $setting->address }}</p>
+                    <p>Email: {{ $setting->email }}</p>
+                    <p>Phone: {{ $setting->phone }}</p>
                     <p>Payment Accepted</p>
-                    <img src="img/payment.png" class="img-fluid" alt="">
+                    <img src="{{ $setting->qr_code }}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
@@ -76,10 +84,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                <span class="text-light"><a href="{{ $setting->domain_url }}"><i
+                            class="fas fa-copyright text-light me-2"></i>{{ $setting->home_name }}</a>, All right reserved.</span>
             </div>
             <div class="col-md-6 my-auto text-center text-md-end text-white">
-                Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                {{ __('error.designed_by') }} <a target="_blank" class="border-bottom"
+                                                 href="{{ $setting ? $setting->author_social : '' }}">{{ $setting ? $setting->author_name : '' }}</a>
+                Distributed By <a target="_blank" class="border-bottom"
+                                  href="{{ $setting ? $setting->author_social : '' }}">{{ $setting ? $setting->author_name : '' }}</a>
             </div>
         </div>
     </div>

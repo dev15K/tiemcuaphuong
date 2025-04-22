@@ -6,8 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>@yield('title')</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+
+    @include('inc.head')
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
