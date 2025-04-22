@@ -79,16 +79,18 @@ class AuthController extends Controller
                 $user->save();
 
                 toast('Login success!', 'success', 'top-right');
+            }
+
+            if (Auth::check()) {
+                if ($url_callback) {
+                    return redirect()->to($url_callback);
+                }
 
                 if ($user_role) {
-                    return redirect(route('admin.home'));
+                    return redirect()->route('admin.home');
                 }
 
-                if ($url_callback) {
-                    return redirect($url_callback);
-                }
-
-                return redirect(route('home'));
+                return redirect()->route('home');
             }
             toast('Login fail! Please check email or password', 'error', 'top-right');
             return redirect()->back();

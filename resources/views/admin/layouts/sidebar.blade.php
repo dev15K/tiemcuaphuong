@@ -16,12 +16,12 @@
             <ul id="categories-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('admin.categories.list') }}">
-                        <i class="bi bi-circle"></i><span>List Category</span>
+                        <i class="bi bi-circle"></i><span>Danh sách Category</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.categories.create') }}">
-                        <i class="bi bi-circle"></i><span>Create Category</span>
+                        <i class="bi bi-circle"></i><span>Thêm mới Category</span>
                     </a>
                 </li>
             </ul>
@@ -34,12 +34,12 @@
             <ul id="attributes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('admin.attributes.list') }}">
-                        <i class="bi bi-circle"></i><span>List Attribute</span>
+                        <i class="bi bi-circle"></i><span>Danh sách Attribute</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.attributes.create') }}">
-                        <i class="bi bi-circle"></i><span>Create Attribute</span>
+                        <i class="bi bi-circle"></i><span>Thêm mới Attribute</span>
                     </a>
                 </li>
             </ul>
@@ -52,12 +52,12 @@
             <ul id="properties-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('admin.properties.list') }}">
-                        <i class="bi bi-circle"></i><span>List property</span>
+                        <i class="bi bi-circle"></i><span>Danh sách property</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.properties.create') }}">
-                        <i class="bi bi-circle"></i><span>Create property</span>
+                        <i class="bi bi-circle"></i><span>Thêm mới property</span>
                     </a>
                 </li>
             </ul>
@@ -71,12 +71,12 @@
             <ul id="products-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('admin.products.list') }}">
-                        <i class="bi bi-circle"></i><span>List Product</span>
+                        <i class="bi bi-circle"></i><span>Danh sách Product</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.products.create') }}">
-                        <i class="bi bi-circle"></i><span>Create Product</span>
+                        <i class="bi bi-circle"></i><span>Thêm mới Product</span>
                     </a>
                 </li>
             </ul>
@@ -89,7 +89,7 @@
             <ul id="orders-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('admin.orders.list') }}">
-                        <i class="bi bi-circle"></i><span>List Orders</span>
+                        <i class="bi bi-circle"></i><span>Danh sách Orders</span>
                     </a>
                 </li>
             </ul>
@@ -102,12 +102,12 @@
             <ul id="news-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="#">
-                        <i class="bi bi-circle"></i><span>List News</span>
+                        <i class="bi bi-circle"></i><span>Danh sách News</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="bi bi-circle"></i><span>Create News</span>
+                        <i class="bi bi-circle"></i><span>Thêm mới News</span>
                     </a>
                 </li>
             </ul>
@@ -115,23 +115,47 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#purchases-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-envelope"></i><span>Purchases</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-envelope"></i><span>Đơn đặt hàng</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="purchases-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('admin.purchases.list') }}">
-                        <i class="bi bi-circle"></i><span>List Purchases</span>
+                        <i class="bi bi-circle"></i><span>Danh sách đơn đặt hàng</span>
                     </a>
                 </li>
             </ul>
         </li><!-- End Purchases Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-question-circle"></i>
-                <span>F.A.Q</span>
+            <a class="nav-link collapsed" data-bs-target="#consultants-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-question-circle"></i><span>Book Tour & Làm giấy thông hành</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-        </li><!-- End F.A.Q Page Nav -->
+            <ul id="consultants-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ route('admin.consultants.list') }}">
+                        <i class="bi bi-circle"></i><span>Danh sách Book Tour & Làm giấy thông hành</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Consultants Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-people"></i><span>Người dùng</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ route('admin.users.list') }}">
+                        <i class="bi bi-circle"></i><span>Danh sách người dùng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.users.list') }}">
+                        <i class="bi bi-circle"></i><span>Thêm mới người dùng</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Users Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('admin.app.setting.index') }}">

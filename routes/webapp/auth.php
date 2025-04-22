@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\clients\ConsultantController;
+use App\Http\Controllers\clients\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => ''], function () {
+    Route::group(['prefix' => 'purchases'], function () {
+        Route::get('/store', [PurchaseController::class, 'notFound'])->name('auth.purchases.found');
+    });
 
+    Route::group(['prefix' => 'consultants'], function () {
+        Route::get('/store', [ConsultantController::class, 'notFound'])->name('auth.consultants.found');
+    });
 });
 
 Route::group(['prefix' => 'api'], function () {

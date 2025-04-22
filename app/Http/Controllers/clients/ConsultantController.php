@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\clients;
 
-use App\Enums\PurchaseStatus;
 use App\Http\Controllers\Controller;
-use App\Models\Purchases;
+use App\Models\Consultants;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PurchaseController extends Controller
+class ConsultantController extends Controller
 {
     public function store(Request $request)
     {
         try {
-            $purchase = new Purchases();
+            $consultant = new Consultants();
 
             $full_name = $request->input('full_name');
             $email = $request->input('email');
@@ -21,26 +20,24 @@ class PurchaseController extends Controller
 
             $user_id = Auth::user()->id;
 
-            $product_link = $request->input('product_link');
-            $quantity = $request->input('quantity');
+            $service_required = $request->input('service_required');
             $notes = $request->input('notes');
 
             $status = $request->input('status');
 
-            $purchase->full_name = $full_name;
-            $purchase->email = $email;
-            $purchase->phone = $phone;
+            $consultant->full_name = $full_name;
+            $consultant->email = $email;
+            $consultant->phone = $phone;
 
-            $purchase->user_id = $user_id;
+            $consultant->user_id = $user_id;
 
-            $purchase->product_link = $product_link;
-            $purchase->quantity = $quantity;
-            $purchase->notes = $notes;
+            $consultant->service_required = $service_required;
+            $consultant->notes = $notes;
 
-            $purchase->status = $status;
-            $purchase->save();
+            $consultant->status = $status;
+            $consultant->save();
 
-            toast('Purchase created successfully!', 'success', 'top-right');
+            toast('Consultant created successfully!', 'success', 'top-right');
             return redirect()->route('home');
         } catch (\Exception $e) {
             toast($e->getMessage(), 'error', 'top-right');

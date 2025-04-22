@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\admin\AdminAttributeController;
 use App\Http\Controllers\admin\AdminCategoryController;
+use App\Http\Controllers\admin\AdminConsultantController;
 use App\Http\Controllers\admin\AdminHomeController;
 use App\Http\Controllers\admin\AdminOrderController;
 use App\Http\Controllers\admin\AdminProductController;
@@ -76,6 +77,13 @@ Route::group(['prefix' => 'purchases'], function () {
     Route::get('/detail/{id}', [AdminPurchaseController::class, 'detail'])->name('admin.purchases.detail');
     Route::put('/update/{id}', [AdminPurchaseController::class, 'update'])->name('admin.purchases.update');
     Route::delete('/delete/{id}', [AdminPurchaseController::class, 'delete'])->name('admin.purchases.delete');
+});
+
+Route::group(['prefix' => 'consultants'], function () {
+    Route::get('/list', [AdminConsultantController::class, 'list'])->name('admin.consultants.list');
+    Route::get('/detail/{id}', [AdminConsultantController::class, 'detail'])->name('admin.consultants.detail');
+    Route::put('/update/{id}', [AdminConsultantController::class, 'update'])->name('admin.consultants.update');
+    Route::delete('/delete/{id}', [AdminConsultantController::class, 'delete'])->name('admin.consultants.delete');
 });
 
 Route::group(['prefix' => 'users'], function () {

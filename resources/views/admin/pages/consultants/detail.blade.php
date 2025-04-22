@@ -1,14 +1,14 @@
 @extends('admin.layouts.master')
 @section('title')
-    Chi tiết đơn đặt hàng
+    Chi tiết Book Tour & Làm giấy thông hành
 @endsection
 @section('content')
     <div class="pagetitle">
-        <h1>Chi tiết đơn đặt hàng</h1>
+        <h1>Chi tiết Book Tour & Làm giấy thông hành</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Trang quản trị</a></li>
-                <li class="breadcrumb-item active">Chi tiết đơn đặt hàng</li>
+                <li class="breadcrumb-item active">Chi tiết Book Tour & Làm giấy thông hành</li>
             </ol>
         </nav>
     </div>

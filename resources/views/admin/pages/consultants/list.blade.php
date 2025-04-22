@@ -1,14 +1,14 @@
 @extends('admin.layouts.master')
 @section('title')
-    Danh sách đơn đặt hàng
+    Danh sách Book Tour & Làm giấy thông hành
 @endsection
 @section('content')
     <div class="pagetitle">
-        <h1>Danh sách đơn đặt hàng</h1>
+        <h1>Danh sách Book Tour & Làm giấy thông hành</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Trang quản trị</a></li>
-                <li class="breadcrumb-item active">Danh sách đơn đặt hàng</li>
+                <li class="breadcrumb-item active">Danh sách Book Tour & Làm giấy thông hành</li>
             </ol>
         </nav>
     </div>
@@ -19,8 +19,7 @@
                 <col width="x">
                 <col width="10%">
                 <col width="10%">
-                <col width="10%">
-                <col width="10%">
+                <col width="30%">
                 <col width="10%">
                 <col width="10%">
             </colgroup>
@@ -30,32 +29,27 @@
                 <th scope="col">Full Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
+                <th scope="col">Service Required</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($purchases as $purchase)
+            @foreach($consultants as $consultant)
                 <tr>
                     <th scope="row">{{ $loop->index + 1 }}</th>
-                    <td>{{ $purchase->full_name }}</td>
-                    <td>{{ $purchase->email }}</td>
-                    <td>{{ $purchase->phone }}</td>
-                    <td>
-                        <a href="{{ $purchase->product_link }}" class="btn btn-sm btn-success">
-                            <i class="bi bi-eye"></i> Xem sản phẩm</a>
-                    </td>
-                    <td>{{ $purchase->quantity }}</td>
-                    <td>{{ $purchase->status }}</td>
+                    <td>{{ $consultant->full_name }}</td>
+                    <td>{{ $consultant->email }}</td>
+                    <td>{{ $consultant->phone }}</td>
+                    <td>{{ $consultant->service_required }}</td>
+                    <td>{{ $consultant->status }}</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
-                            <a href="{{ route('admin.purchases.detail', $purchase->id) }}"
+                            <a href="{{ route('admin.consultants.detail', $consultant->id) }}"
                                class="btn btn-primary btn-sm">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <form action="{{ route('admin.purchases.delete', $purchase->id) }}" method="post">
+                            <form action="{{ route('admin.consultants.delete', $consultant->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">
@@ -66,13 +60,13 @@
                     </td>
                 </tr>
             @endforeach
-            @if(count($purchases) == 0)
+            @if(count($consultants) == 0)
                 <tr>
-                    <td class="text-center" colspan="8">No data</td>
+                    <td class="text-center" colspan="7">No data</td>
                 </tr>
             @endif
             </tbody>
         </table>
-        {{ $purchases->links('pagination::bootstrap-5') }}
+        {{ $consultants->links('pagination::bootstrap-5') }}
     </section>
 @endsection

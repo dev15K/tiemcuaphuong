@@ -11,4 +11,14 @@ class HomeController extends Controller
     {
         return view('clients.index');
     }
+
+    public function purchases()
+    {
+
+    }
+
+    public function consultant()
+    {
+
+    }
 }
