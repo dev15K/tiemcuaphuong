@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\admin\AdminAttributeController;
+use App\Http\Controllers\admin\AdminCategoryController;
 use App\Http\Controllers\admin\AdminHomeController;
 use App\Http\Controllers\admin\AdminOrderController;
 use App\Http\Controllers\admin\AdminProductController;
@@ -25,6 +26,15 @@ Route::get('/dashboard', [AdminHomeController::class, 'index'])->name('admin.hom
 Route::group(['prefix' => 'app-settings'], function () {
     Route::get('/index', [AdminSettingController::class, 'index'])->name('admin.app.setting.index');
     Route::post('/store', [AdminSettingController::class, 'appSetting'])->name('admin.app.setting.store');
+});
+
+Route::group(['prefix' => 'categories'], function () {
+    Route::get('/list', [AdminCategoryController::class, 'list'])->name('admin.categories.list');
+    Route::get('/detail/{id}', [AdminCategoryController::class, 'detail'])->name('admin.categories.detail');
+    Route::get('/create', [AdminCategoryController::class, 'create'])->name('admin.categories.create');
+    Route::post('/store', [AdminCategoryController::class, 'store'])->name('admin.categories.store');
+    Route::put('/update/{id}', [AdminCategoryController::class, 'update'])->name('admin.categories.update');
+    Route::delete('/delete/{id}', [AdminCategoryController::class, 'delete'])->name('admin.categories.delete');
 });
 
 Route::group(['prefix' => 'attributes'], function () {

@@ -1,21 +1,21 @@
 @extends('admin.layouts.master')
 @section('title')
-    Dashboard
+    Thêm mới sản phẩm
 @endsection
 @section('content')
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Thêm mới sản phẩm</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Trang quản trị</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active">Thêm mới sản phẩm</li>
             </ol>
         </nav>
     </div>
     <section class="section">
         <form method="post" action="" enctype="multipart/form-data">
             @csrf
-            <div class="form-row">
+            <div class="row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
                     <input type="email" class="form-control" id="inputEmail4">
@@ -33,7 +33,7 @@
                 <label for="inputAddress2">Address 2</label>
                 <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
             </div>
-            <div class="form-row">
+            <div class="row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
                     <input type="text" class="form-control" id="inputCity">

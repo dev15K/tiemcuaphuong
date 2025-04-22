@@ -11,7 +11,9 @@ class AdminAttributeController extends Controller
 {
     public function list()
     {
-        $attributes = Attributes::where('status', '!=', AttributeStatus::DELETED())->paginate(20);
+        $attributes = Attributes::where('status', '!=', AttributeStatus::DELETED())
+            ->orderByDesc('id')
+            ->paginate(20);
         return view('admin.pages.attributes.list', compact('attributes'));
     }
 

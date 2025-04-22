@@ -60,5 +60,6 @@
             @endif
             </tbody>
         </table>
+        {{ $properties->links('pagination::bootstrap-5') }}
     </section>
 @endsection

@@ -13,7 +13,9 @@ class AdminPropertyController extends Controller
 {
     public function list()
     {
-        $properties = Properties::where('status', '!=', PropertyStatus::DELETED())->get();
+        $properties = Properties::where('status', '!=', PropertyStatus::DELETED())
+            ->orderByDesc('id')
+            ->paginate(20);
         return view('admin.pages.properties.list', compact('properties'));
     }
 
