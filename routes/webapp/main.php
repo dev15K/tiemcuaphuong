@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\clients\HomeController;
+use App\Http\Controllers\clients\ProductController;
 use App\Http\Controllers\clients\PropertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/consultant', [HomeController::class, 'consultant'])->name('home.consultant');
 Route::get('/purchases', [HomeController::class, 'purchases'])->name('home.purchases');
-Route::get('/products/list', [HomeController::class, 'index'])->name('home.products.list');
-Route::get('/products/detail', [HomeController::class, 'index'])->name('home.products.detail');
+Route::get('/products/list', [ProductController::class, 'list'])->name('home.products.list');
+Route::get('/products/detail/{id}', [ProductController::class, 'detail'])->name('home.products.detail');
 
 Route::group(['prefix' => 'api'], function () {
     Route::group(['prefix' => 'properties'], function () {

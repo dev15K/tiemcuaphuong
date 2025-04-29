@@ -12,7 +12,8 @@
             <div class="top-link pe-2">
                 <a href="#" class="text-white"><small class="text-white mx-2">Chính sách bảo mật</small>/</a>
                 <a href="#" class="text-white"><small class="text-white mx-2">Điều khoản sử dụng</small>/</a>
-                <a href="#" class="text-white"><small class="text-white ms-2">Bán hàng</small></a>
+                <a href="{{ route('home.products.list') }}" class="text-white"><small class="text-white ms-2">Bán
+                        hàng</small></a>
             </div>
         </div>
     </div>
@@ -28,13 +29,18 @@
                 <div class="navbar-nav mx-auto">
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Trang chủ</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Cửa hàng</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Danh mục</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="cart.html" class="dropdown-item">Đặc sản Tây Bắc</a>
-                            <a href="chackout.html" class="dropdown-item">Hàng nội địa Trung có sẵn</a>
-                            <a href="testimonial.html" class="dropdown-item">Hàng nội địa Trung order</a>
+                            @php
+                                $categories = \App\Models\Categories::where('status', \App\Enums\CategoryStatus::ACTIVE())->orderByDesc('id')->get();
+                            @endphp
+                            @foreach($categories as $category)
+                                <a href="{{ route('home.products.list') }}?category={{ $category->id }}"
+                                   class="dropdown-item">{{ $category->name }}</a>
+                            @endforeach
                         </div>
                     </div>
+                    <a href="{{ route('home.products.list') }}" class="nav-item nav-link">Cửa hàng</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dịch vụ</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -42,8 +48,8 @@
                                 hành/hộ chiếu ở cửa khẩu Lào Cai</a>
                         </div>
                     </div>
-                    <a href="shop-detail.html" class="nav-item nav-link">Tin tức</a>
-                    <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                    <a href="#" class="nav-item nav-link">Tin tức</a>
+                    <a href="#" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
