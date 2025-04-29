@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => ''], function () {
     Route::group(['prefix' => 'purchases'], function () {
-        Route::get('/store', [PurchaseController::class, 'notFound'])->name('auth.purchases.found');
+        Route::post('/store', [PurchaseController::class, 'store'])->name('auth.purchases.store');
     });
 
     Route::group(['prefix' => 'consultants'], function () {
-        Route::get('/store', [ConsultantController::class, 'notFound'])->name('auth.consultants.found');
+        Route::post('/store', [ConsultantController::class, 'store'])->name('auth.consultants.store');
     });
 });
 

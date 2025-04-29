@@ -212,6 +212,7 @@ class AuthController extends Controller
             Auth::logout();
             return redirect(route('home'));
         } catch (\Exception $exception) {
+            dd($exception);
             return redirect(route('home'));
         }
     }

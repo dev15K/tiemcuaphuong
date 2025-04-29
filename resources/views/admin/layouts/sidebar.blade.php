@@ -183,7 +183,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('auth.logout') }}">
                 <i class="bi bi-box-arrow-in-right"></i>
-                <span>Sign Out</span>
+                <span>Đăng xuất</span>
             </a>
         </li><!-- End Logout Page Nav -->
 

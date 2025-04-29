@@ -27,7 +27,7 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Full Name</th>
+                <th scope="col">Họ và tên</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Product</th>

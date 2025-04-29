@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/consultant', [HomeController::class, 'consultant'])->name('home.consultant');
+Route::get('/purchases', [HomeController::class, 'purchases'])->name('home.purchases');
+Route::get('/products/list', [HomeController::class, 'index'])->name('home.products.list');
+Route::get('/products/detail', [HomeController::class, 'index'])->name('home.products.detail');
 
 Route::group(['prefix' => 'api'], function () {
     Route::group(['prefix' => 'properties'], function () {

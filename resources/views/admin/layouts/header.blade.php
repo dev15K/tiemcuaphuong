@@ -43,7 +43,7 @@
                     <li>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <i class="bi bi-person"></i>
-                            <span>My Profile</span>
+                            <span>Trang cá nhân</span>
                         </a>
                     </li>
                     <li>
@@ -63,7 +63,7 @@
                     <li>
                         <a class="dropdown-item d-flex align-items-center" href="{{ route('auth.logout') }}">
                             <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
+                            <span>Đăng xuất</span>
                         </a>
                     </li>
 

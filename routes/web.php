@@ -39,7 +39,7 @@ Route::group(['prefix' => ''], function () {
     require_once __DIR__ . '/webapp/main.php';
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     require_once __DIR__ . '/webapp/auth.php';
 });
 

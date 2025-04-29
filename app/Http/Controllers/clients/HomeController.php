@@ -19,6 +19,6 @@ class HomeController extends Controller
 
     public function consultant()
     {
-
+        return view('clients.pages.consultant');
     }
 }

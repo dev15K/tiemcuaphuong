@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\clients;
 
+use App\Enums\ConsultantStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Consultants;
 use Illuminate\Http\Request;
@@ -12,6 +13,9 @@ class ConsultantController extends Controller
     public function store(Request $request)
     {
         try {
+            if (!Auth::check()) {
+                return redirect(route('error.unauthorized'));
+            }
             $consultant = new Consultants();
 
             $full_name = $request->input('full_name');
@@ -23,7 +27,7 @@ class ConsultantController extends Controller
             $service_required = $request->input('service_required');
             $notes = $request->input('notes');
 
-            $status = $request->input('status');
+            $status = ConsultantStatus::PENDING();
 
             $consultant->full_name = $full_name;
             $consultant->email = $email;
@@ -37,7 +41,7 @@ class ConsultantController extends Controller
             $consultant->status = $status;
             $consultant->save();
 
-            toast('Consultant created successfully!', 'success', 'top-right');
+            toast('Cảm ơn bạn đã tin tưởng. Chúng tôi sẽ sớm liên hệ báo giá nhanh nhất!', 'success', 'top-right');
             return redirect()->route('home');
         } catch (\Exception $e) {
             toast($e->getMessage(), 'error', 'top-right');
