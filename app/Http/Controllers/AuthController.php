@@ -64,11 +64,6 @@ class AuthController extends Controller
             }
 
             $roleAdmin = Role::where('name', RoleName::ADMIN)->first();
-            if (!$roleAdmin) {
-                alert()->error('Role admin not found!');
-                return redirect()->back();
-            }
-
             $user_role = RoleUser::where('user_id', $user->id)->where('role_id', $roleAdmin->id)->first();
 
             if (\Illuminate\Support\Facades\Auth::attempt($credentials)) {
@@ -79,9 +74,6 @@ class AuthController extends Controller
                 $user->save();
 
                 toast('Login success!', 'success', 'top-right');
-            }
-
-            if (Auth::check()) {
                 if ($url_callback) {
                     return redirect()->to($url_callback);
                 }
@@ -92,6 +84,7 @@ class AuthController extends Controller
 
                 return redirect()->route('home');
             }
+
             toast('Login fail! Please check email or password', 'error', 'top-right');
             return redirect()->back();
         } catch (\Exception $exception) {
